@@ -1,0 +1,76 @@
+import time
+# from playsound import playsound
+
+class Bank_account:
+    def __init__(self, account_no, Balance):
+      self.account_no = account_no
+      self.Balance = Balance
+    def deposite(self,amount):
+        self.Balance+=amount
+    def withdraw(self,amount):
+        if self.Balance>=amount:
+            self.Balance-=amount
+        else:
+            print("insufficient balance")
+    def get_amount(self):
+        return self.Balance
+list={
+    "123":200,
+    "321":30000,
+    "213":2,
+    "312":45,
+}
+running=True
+def home_page():
+    option=int(input("1.get balance\n2.withdraw/deposite\n3.sign out of bank account\n"))
+    if option ==1:
+        print("Saving Account Balance:")#error
+    if option ==2:
+        check(account_no)
+    if option ==3:
+        running=False
+        print("happy banking")
+def check(account):
+    print("Checking account details.......")
+    time.sleep(2)
+
+    if account_no in list:
+        print("loading pre requsites...........")
+        time.sleep(2)
+        print("Account Found")
+        print("loading pre requsites...........")
+        time.sleep(3)
+        saving_acc = Bank_account(account_no,list[account_no])
+        running=True
+        while running:
+            print("Saving Account Balance:", saving_acc.get_amount())
+            option=int(input("1.withdraw\n2.deposite\n3.go to home page\n"))
+            if option==1:
+                credit=int(input("enter the amount to withdraw"))
+                saving_acc.withdraw(credit)
+                time.sleep(5)
+                print("Saving Account Balance:", saving_acc.get_amount())
+                save="Saving Account Balance:", saving_acc.get_amount()
+            elif option==2:
+                debit=int(input("enter the amount to deposite"))
+                saving_acc.deposite(debit)
+                time.sleep(5)
+                print("Saving Account Balance:", saving_acc.get_amount())
+                save="Saving Account Balance:", saving_acc.get_amount()
+            elif option==3:
+                running=False
+                home_page()
+                
+            else:
+                print("invalid option")
+
+
+    else:
+        print("account not found")
+
+account_no=input("enter the account number")
+check(account_no)
+
+
+
+
