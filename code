@@ -12,7 +12,7 @@ class Bank_account :
           self.Balance = self.Balance - amount
        else :
           print ("insufficient balance")
-    def final_amount(self):
+    def get_amount(self):
        return self.Balance
 list={
     "123":200,
@@ -56,3 +56,4 @@ def homepage():
         running=False
         print("happy banking")
 print("harshal")  
+homepage()
